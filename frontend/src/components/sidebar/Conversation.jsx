@@ -20,7 +20,7 @@ console.log("isOnline ", isOnline);
         }`}
         onClick={() => setSelectedConversation(conversation)}
       >
-        <div className={`avatar-online`}>
+        <div className={`avatar-${isOnline ? "online" : ""} relative`}>
           <div className="w-12 rounded-full">
             <img src={conversation?.profilePic} alt="user avatar" />
           </div>
