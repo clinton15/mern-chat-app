@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const app = express();
+const { app, server } = require("./socket/socket.js");
 const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./routes/auth.routes.js");
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   connectToDb();
   console.log(`Server listening on port ${port}`);
 });
