@@ -11,11 +11,9 @@ const useGetConversations = () => {
       try {
         const res = await fetch("/api/users");
         const data = await res.json();
-
         if (data.error) {
-          return new Error(data.error);
+          throw new Error(data.error);
         }
-
         setConversations(data);
       } catch (error) {
         toast.error(error.message);
@@ -26,7 +24,7 @@ const useGetConversations = () => {
 
     getConversations();
   }, []);
+
   return { loading, conversations };
 };
-
 export default useGetConversations;
